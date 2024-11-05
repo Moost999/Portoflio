@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Switch } from "@/components/ui/switch"
 import { Mail, Sun, Github, Linkedin, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
+import { LinkProps } from 'next/link'
 
 export default function Page() {
   const [darkMode, setDarkMode] = useState(true)
@@ -53,8 +54,22 @@ export default function Page() {
     },  
   ]
 
+  const contactRef = useRef<HTMLElement>(null)
+const projectsRef = useRef<HTMLElement>(null)
 
+// Adicione esta função após suas declarações de state existentes
+const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
+  ref.current?.scrollIntoView({ behavior: 'smooth' })
+}
 
+// Adicione esta função após o scrollToSection
+const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  e.preventDefault()
+  const element = document.getElementById(id)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
   const handlePrevImage = (index: number) => {
     setCurrentImageIndices((prev) => ({
       ...prev,
@@ -137,10 +152,10 @@ export default function Page() {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex justify-center space-x-4"
           >
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={(e) => handleNavClick(e, 'projects')}>
               Projetos
             </Button>
-            <Button size="lg" variant="outline" className='bg-blue-600'>
+            <Button size="lg" variant="outline" className='bg-blue-600' onClick={(e) => handleNavClick(e, 'contact')}>
               Contato
             </Button>
           </motion.div>
