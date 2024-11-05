@@ -54,22 +54,24 @@ export default function Page() {
     },  
   ]
 
-  const contactRef = useRef<HTMLElement>(null)
-const projectsRef = useRef<HTMLElement>(null)
 
-// Adicione esta função após suas declarações de state existentes
-const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
-  ref.current?.scrollIntoView({ behavior: 'smooth' })
-}
-
-// Adicione esta função após o scrollToSection
-const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-  e.preventDefault()
-  const element = document.getElementById(id)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
-}
+  const contactRef = useRef<HTMLElement>(null);
+  const projectsRef = useRef<HTMLElement>(null);
+  
+  // Função para rolar suavemente até a seção
+  const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
+  // Função para lidar com cliques de navegação
+  const handleNavClick = (e: React.MouseEvent<HTMLElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   const handlePrevImage = (index: number) => {
     setCurrentImageIndices((prev) => ({
       ...prev,
