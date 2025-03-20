@@ -1,4 +1,1 @@
-.next/ filter=lfs diff=lfs merge=lfs -text
-public/ filter=lfs diff=lfs merge=lfs -text
-public/axxus.mp4 filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
