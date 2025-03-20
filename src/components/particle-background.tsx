@@ -35,34 +35,33 @@ export const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode
       speedY: number
       color: string
 
-      constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
+      constructor(canvasWidth: number, canvasHeight: number) {
+        this.x = Math.random() * canvasWidth
+        this.y = Math.random() * canvasHeight
         this.size = Math.random() * 3 + 1
         this.speedX = (Math.random() - 0.5) * 0.5
         this.speedY = (Math.random() - 0.5) * 0.5
         this.color = darkMode ? "rgba(255, 255, 255, 0.3)" : "rgba(0, 0, 0, 0.3)"
       }
 
-      update() {
+      update(canvasWidth: number, canvasHeight: number) {
         this.x += this.speedX
         this.y += this.speedY
 
         // Bounce off edges
-        if (this.x > canvas.width || this.x < 0) {
+        if (this.x > canvasWidth || this.x < 0) {
           this.speedX = -this.speedX
         }
-        if (this.y > canvas.height || this.y < 0) {
+        if (this.y > canvasHeight || this.y < 0) {
           this.speedY = -this.speedY
         }
       }
 
-      draw() {
-        if (!ctx) return
-        ctx.fillStyle = this.color
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.fill()
+      draw(context: CanvasRenderingContext2D) {
+        context.fillStyle = this.color
+        context.beginPath()
+        context.arc(this.x, this.y, this.size, 0, Math.PI * 2)
+        context.fill()
       }
     }
 
@@ -71,18 +70,17 @@ export const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode
     const particles: Particle[] = []
 
     for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle())
+      particles.push(new Particle(canvas.width, canvas.height))
     }
 
     // Animation loop
     const animate = () => {
-      if (!ctx) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       // Update and draw particles
       particles.forEach((particle) => {
-        particle.update()
-        particle.draw()
+        particle.update(canvas.width, canvas.height)
+        particle.draw(ctx)
       })
 
       // Draw connections
@@ -93,7 +91,6 @@ export const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode
 
     // Connect particles with lines if they're close enough
     const connectParticles = () => {
-      if (!ctx) return
       const maxDistance = 100
 
       for (let i = 0; i < particles.length; i++) {
@@ -124,4 +121,3 @@ export const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode
 
   return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none z-0" />
 }
-

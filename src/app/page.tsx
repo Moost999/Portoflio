@@ -62,7 +62,7 @@ export default function Page() {
       github: "https://github.com/Moost999/AxxusAI",
       technologies: ["Next.js", "React", "TailwindCSS", "Node.js", "Express", "MongoDB"],
       images: ["/axxus.jpeg", "/axxus2.png", "/axxus3.png", "/axxus4.png"],
-      video: "/axxus.mp4",
+      video: "/axxusv2.mp4",
     },
     {
       title: t.projects.automation.title,
