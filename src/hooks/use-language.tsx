@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect, createContext, useContext } from "react"
 
 // English translations
@@ -14,7 +13,7 @@ const en = {
   },
   hero: {
     subtitle:
-      "Full-Stack Developer | React | Node | Express | API | NextJS | UI | Tailwind CSS | Information Systems Student | Software Engineering",
+      "Full-Stack Developer | NextJS | React | Node | Express | API | Java | UI | Tailwind CSS | Information Systems Student | Software Engineering",
     projectsBtn: "Projects",
     contactBtn: "Contact",
   },
@@ -41,35 +40,39 @@ const en = {
       java: "Learning Java for backend development with a focus on enterprise applications and microservices architecture. Building robust server-side applications with Java's powerful ecosystem.",
       spring:
         "Exploring Spring Framework for building scalable web applications, RESTful APIs, and microservices. Learning Spring Boot, Spring Security, and Spring Data for complete enterprise solutions.",
+      angular: "Learning Angular for building modern web applications with a focus on performance and scalability. Exploring Angular's powerful features for creating dynamic and interactive user interfaces.",
     },
   },
   projects: {
     title: "My Projects",
     metaverse: {
       title: "Metaverse UX Project",
-      description:
-        "An immersive interface experience for the Metaverse developed with Next.js. This project demonstrates advanced UI/UX concepts with fluid animations and responsive design, creating an engaging user experience that simulates navigation in a metaverse environment.",
+      description: "An immersive interface experience for the Metaverse developed with Next.js, demonstrating advanced UI/UX concepts with fluid animations and responsive design."
     },
     axxus: {
-      title: "Axxus AI",
-      description:
-        "A complete hub for creating and managing Artificial Intelligence agents. Integrates multiple AI models (Gemini, LLama3, OpenAI) with a unified interface. Allows you to create, customize and manage virtual assistants for various applications, with support for natural language processing and content generation.",
+      title: "Axxus AI - WhatsApp AI Hub",
+      description: "Complete platform for creating and managing AI agents on WhatsApp, integrating multiple AI models with a unified interface."
     },
     automation: {
       title: "ERP Interface Automation",
-      description:
-        "Automation solution for repetitive processes in ERP systems. Using Python and PyAutoGUI, this project automates data entry and manipulation tasks in graphical interfaces, significantly reducing operational time and eliminating human errors. Includes intelligent screen element detection and exception handling to ensure robustness.",
+      description: "Python automation solution for repetitive ERP tasks, significantly reducing operational time through intelligent automation."
     },
     tickets: {
-      title: "Corporate Gifts System (Tickets)",
-      description:
-        "Complete platform for managing and distributing tickets and courtesies for corporate events. Developed with Next.js and SQLite, the system allows event registration, availability control, automated drawing and ticket distribution. Includes administrative panel for complete management and intuitive interface for end users.",
+      title: "Corporate Gifts System",
+      description: "Complete platform for managing and distributing tickets for corporate events with automated drawing features."
     },
-    facial: {
-      title: "Facial Recognition Management System",
-      description:
-        "A system that integrates Intelbras' native API to manage Dahua and Intelbras devices. The solution allows user registration and facial recognition through an interface designed for receptions and companies, offering features such as turnstile management, user registration and real-time monitoring.",
+    authSystem: {
+      title: "Java & Angular Auth System",
+      description: "Study project featuring a secure login system with Java/Spring backend and Angular frontend."
     },
+    helloKitty: {
+      title: "Hello Kitty Chat",
+      description: "Personal real-time chat application built as a fun challenge, featuring custom theming and SSE technology."
+    },
+    portfolioApi: {
+      title: "Portfolio API Backend",
+      description: "Robust backend system for portfolio management with JWT authentication and MongoDB integration."
+    }
   },
   contact: {
     title: "Get in Touch",
@@ -95,7 +98,7 @@ const pt = {
   },
   hero: {
     subtitle:
-      "Desenvolvedor Full-Stack | React | Node | Express | API | NextJS | UI | Tailwind CSS | Estudante de Sistemas De Informação | Engenharia De Software",
+      "Desenvolvedor Full-Stack | NextJS | React | Node | Express | API | Java | UI | Tailwind CSS | Estudante de Sistemas De Informação | Engenharia De Software",
     projectsBtn: "Projetos",
     contactBtn: "Contato",
   },
@@ -122,35 +125,39 @@ const pt = {
       java: "Aprendendo Java para desenvolvimento backend com foco em aplicações empresariais e arquitetura de microsserviços. Construindo aplicações robustas do lado do servidor com o poderoso ecossistema Java.",
       spring:
         "Explorando o Spring Framework para construir aplicações web escaláveis, APIs RESTful e microsserviços. Aprendendo Spring Boot, Spring Security e Spring Data para soluções empresariais completas.",
+      angular: "Aprendendo Angular para construir aplicações web modernas com foco em desempenho e escalabilidade. Explorando os recursos poderosos do Angular para criar interfaces de usuário dinâmicas e interativas.",
     },
   },
   projects: {
     title: "Meus Projetos",
     metaverse: {
       title: "Projeto UX Metaverso",
-      description:
-        "Uma experiência imersiva de interface para o Metaverso desenvolvida com Next.js. Este projeto demonstra conceitos avançados de UI/UX com animações fluidas e design responsivo, criando uma experiência de usuário envolvente que simula a navegação em um ambiente de metaverso.",
+      description: "Experiência imersiva de interface para o Metaverso desenvolvida com Next.js, demonstrando conceitos avançados de UI/UX com animações fluidas."
     },
     axxus: {
-      title: "Axxus AI",
-      description:
-        "Hub completo para criação e gerenciamento de agentes de Inteligência Artificial. Integra múltiplos modelos de IA (Gemini, LLama3, OpenAI) com uma interface unificada. Permite criar, personalizar e gerenciar assistentes virtuais para diversas aplicações, com suporte a processamento de linguagem natural e geração de conteúdo.",
+      title: "Axxus AI - Hub de IA para WhatsApp",
+      description: "Plataforma completa para criação e gerenciamento de agentes de IA no WhatsApp, integrando múltiplos modelos de IA com interface unificada."
     },
     automation: {
       title: "Automação de Interfaces ERP",
-      description:
-        "Solução de automação para processos repetitivos em sistemas ERP. Utilizando Python e PyAutoGUI, este projeto automatiza tarefas de cadastro e manipulação de dados em interfaces gráficas, reduzindo significativamente o tempo operacional e eliminando erros humanos. Inclui detecção inteligente de elementos na tela e tratamento de exceções para garantir robustez.",
+      description: "Solução de automação em Python para tarefas repetitivas em ERPs, reduzindo significativamente o tempo operacional."
     },
     tickets: {
-      title: "Sistema De Brindes Corporativos",
-      description:
-        "Plataforma completa para gerenciamento e distribuição de ingressos e cortesias para eventos corporativos. Desenvolvido com Next.js e SQLite, o sistema permite o cadastro de eventos, controle de disponibilidade, sorteio automatizado e distribuição de ingressos. Inclui painel administrativo para gestão completa e interface intuitiva para usuários finais.",
+      title: "Sistema de Brindes Corporativos",
+      description: "Plataforma completa para gerenciamento e distribuição de ingressos para eventos corporativos com sorteio automatizado."
     },
-    facial: {
-      title: "Sistema de Gerenciamento de Reconhecimento Facial",
-      description:
-        "Um sistema que integra a API nativa da Intelbras para gerenciar dispositivos Dahua e Intelbras. A solução permite o cadastro de usuários e reconhecimento facial através de uma interface projetada para recepções e empresas, oferecendo recursos como gerenciamento de catracas, cadastro de usuários e monitoramento em tempo real.",
+    authSystem: {
+      title: "Sistema de Autenticação Java/Angular",
+      description: "Projeto de estudo com backend Java/Spring e frontend Angular para sistema de login seguro."
     },
+    helloKitty: {
+      title: "Hello Kitty Chat",
+      description: "Chat pessoal em tempo real desenvolvido como desafio divertido, com tema personalizado e tecnologia SSE."
+    },
+    portfolioApi: {
+      title: "Backend do Portfólio",
+      description: "Sistema backend robusto para gerenciamento de portfólio com autenticação JWT e integração MongoDB."
+    }
   },
   contact: {
     title: "Entre em Contato",
@@ -223,4 +230,3 @@ export default function useLanguageStandalone() {
 
   return { language, toggleLanguage, t: translations }
 }
-

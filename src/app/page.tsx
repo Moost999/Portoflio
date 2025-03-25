@@ -1,8 +1,6 @@
-"use client"
+'use client'
 
-import type React from "react"
-
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -17,12 +15,26 @@ import { ProjectCard } from "@/components/project-card"
 import { SkillCard } from "@/components/skill-card"
 import { LearningSkillCard } from "@/components/learning-skill-card"
 
+type Project = {
+  id?: string;
+  title: string;
+  description: string;
+  link: string;
+  github?: string;
+  technologies: string[];
+  images: string[];
+  video: string | null;
+};
+
 export default function Page() {
   const [darkMode, setDarkMode] = useState(true)
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
   const [formSubmitted, setFormSubmitted] = useState(false)
   const { language, toggleLanguage, t } = useLanguage()
+  const [projects, setProjects] = useState<Project[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   const { scrollYProgress } = useScroll()
   const heroRef = useRef<HTMLElement>(null)
@@ -31,6 +43,59 @@ export default function Page() {
   const projectsRef = useRef<HTMLElement>(null)
   const contactRef = useRef<HTMLElement>(null)
 
+  // Carrega projetos da API
+  const loadProjects = async () => {
+    try {
+      setLoading(true)
+      const response = await fetch('/api/projects')
+      if (!response.ok) {
+        throw new Error('Failed to fetch projects')
+      }
+      const data = await response.json()
+      setProjects(data)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to load projects')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  // Cria um novo projeto
+  const handleAddProject = async () => {
+    const newProject: Omit<Project, 'id'> = {
+      title: "Novo Projeto",
+      description: "Descrição do novo projeto",
+      link: "https://example.com",
+      technologies: ["React", "Next.js"],
+      images: [],
+      video: null
+    }
+
+    try {
+      const response = await fetch('/api/projects', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newProject)
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to create project')
+      }
+
+      const createdProject = await response.json()
+      setProjects(prev => [...prev, createdProject])
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to create project')
+    }
+  }
+
+  useEffect(() => {
+    loadProjects()
+  }, [])
+
+  // Restante das funções permanecem iguais...
   const toggleDarkMode = () => setDarkMode(!darkMode)
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -45,56 +110,12 @@ export default function Page() {
     }, 5000)
   }
 
-  const projects = [
-    {
-      title: t.projects.metaverse.title,
-      description: t.projects.metaverse.description,
-      link: "https://metaverseuxproject.vercel.app/",
-      github: "https://github.com/Moost999/metaverseuxproject",
-      technologies: ["Next.js", "React", "TailwindCSS", "Framer Motion"],
-      images: ["/Meta.png"],
-      video: "/desk.mp4",
-    },
-    {
-      title: t.projects.axxus.title,
-      description: t.projects.axxus.description,
-      link: "https://axxusai.vercel.app/",
-      github: "https://github.com/Moost999/AxxusAI",
-      technologies: ["Next.js", "React", "TailwindCSS", "Node.js", "Express", "MongoDB"],
-      images: ["/axxus.jpeg", "/axxus2.png", "/axxus3.png", "/axxus4.png"],
-      video: "/axxusv2.mp4",
-    },
-    {
-      title: t.projects.automation.title,
-      description: t.projects.automation.description,
-      link: "https://github.com/Moost999/AutomacaoERPMegaGUI",
-      technologies: ["Python", "PyAutoGUI", "OpenCV", "Pandas"],
-      images: ["/Sem.png"],
-      video: "/video.mp4",
-    },
-    {
-      title: t.projects.tickets.title,
-      description: t.projects.tickets.description,
-      link: "#",
-      technologies: ["Nextjs", "React", "Node.js", "SQLite", "TailwindCSS"],
-      images: ["/Bid2.png", "/bid3.png"],
-      video: "/bid.mp4",
-    },
-    // {
-    //   title: t.projects.facial.title,
-    //   description: t.projects.facial.description,
-    //   link: "#",
-    //   technologies: ["Node.js", "Express", "React", "API Integration", "Facial Recognition"],
-    //   images: ["/placeholder.svg?height=400&width=600"],
-    //   video: null,
-    // },
-  ]
-
   const skills = [
     { skill: "JavaScript", level: 85, icon: "javascript" },
     { skill: "TypeScript", level: 80, icon: "typescript" },
     { skill: "React", level: 85, icon: "react" },
     { skill: "Next.js", level: 80, icon: "nextjs" },
+    { skill: "Angular", level: 40, icon: "angular"},
     { skill: "Node.js", level: 75, icon: "nodejs" },
     { skill: "Express", level: 70, icon: "express" },
     { skill: "Python", level: 80, icon: "python" },
@@ -114,32 +135,17 @@ export default function Page() {
     },
     {
       skill: "Spring Framework",
-      progress: 30,
+      progress: 40,
       icon: "spring",
       description: t.skills.learning.spring,
     },
+    {
+      skill: "Angular",
+      progress: 45,
+      icon: "angular",
+      description: t.skills.learning.angular
+    },
   ]
-
-  // These arrays are not being used, so we can remove them
-  // const mainSkills = [
-  //   { name: "JavaScript", icon: "javascript" },
-  //   { name: "TypeScript", icon: "typescript" },
-  //   { name: "React", icon: "react" },
-  //   { name: "Next.js", icon: "nextjs" },
-  //   { name: "Node.js", icon: "nodejs" },
-  //   { name: "TailwindCSS", icon: "tailwind" },
-  //   { name: "Python", icon: "python" },
-  //   { name: "SQL", icon: "sql" },
-  //   { name: "Git", icon: "git" },
-  // ];
-
-  // const learningSkills2 = [
-  //   { name: "Docker", icon: "docker" },
-  //   { name: "Kubernetes", icon: "kubernetes" },
-  //   { name: "AWS", icon: "aws" },
-  //   { name: "GCP", icon: "googlecloud" },
-  //   { name: "Azure", icon: "azure" },
-  // ];
 
   // Scroll to section function
   const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
@@ -449,11 +455,30 @@ export default function Page() {
         <section ref={projectsRef} id="projects" className={`py-20 px-4 ${darkMode ? "bg-gray-800" : "bg-gray-100"}`}>
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">{t.projects.title}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project, index) => (
-                <ProjectCard key={index} project={project} index={index} darkMode={darkMode} />
-              ))}
-            </div>
+            
+            {loading ? (
+              <div className="text-center">Loading projects...</div>
+            ) : error ? (
+              <div className="text-center text-red-500">{error}</div>
+            ) : (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {projects.map((project, index) => (
+                    <ProjectCard key={project.id || index} project={project} index={index} darkMode={darkMode} />
+                  ))}
+                </div>
+                
+                {/* Botão de exemplo para adicionar novo projeto */}
+                {/* <div className="mt-8 text-center">
+                  <Button 
+                    onClick={handleAddProject}
+                    className="bg-blue-600 hover:bg-blue-700"
+                  >
+                    Add Sample Project
+                  </Button>
+                </div> */}
+              </>
+            )}
           </div>
         </section>
       </FadeInSection>
@@ -555,4 +580,3 @@ export default function Page() {
     </div>
   )
 }
-
