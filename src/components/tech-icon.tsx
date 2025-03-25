@@ -49,6 +49,7 @@ export const TechIcon: React.FC<TechIconProps> = ({ name, className = "w-6 h-6" 
     angular:  "/icons/angular.svg",
     h2: "/icons/h2.png",
     api: "/icons/api.svg",
+    sseserversideevents: "/icons/react.svg",
     pyautogui: "/icons/python.svg",
     framermotion: "/icons/framer.svg",
     framer: "/icons/framer.svg",

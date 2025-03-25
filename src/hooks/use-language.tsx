@@ -20,9 +20,10 @@ const en = {
   about: {
     title: "Resume (CV)",
     paragraphs: [
-      "Hello, I'm João, I'm 19 years old, studying Information Systems, looking to develop more practical experiences in the field of information technology. I'm passionate about programming and innovation, and I dedicate myself to creating technological solutions that have a real impact on people's daily lives and company performance.",
-      "Throughout my journey, I've developed a proactive and creative profile, with experience in modern technologies such as JavaScript, TypeScript, Node.js, React, Next.js, Python, and IoT solution integration using Arduino and ESP32. What motivates me most is the possibility of transforming ideas into practical solutions that improve processes and simplify the lives of those who use them.",
-      "I have projects in various technologies, including C#, JavaScript, HTML, CSS, React, Node.js, TypeScript and SQL, Arduino with ESP32.",
+        "João – Developer | Information Systems",
+        "Undergraduate student in Information Systems, passionate about programming and innovation. I strive to create technological solutions that optimize processes and positively impact businesses and people.",
+        "I have experience with JavaScript, TypeScript, Node.js, React, Next.js, Python, and IoT integration using Arduino and ESP32. I have developed projects using Java, HTML, CSS, MongoDB, and SQL.",
+        
     ],
     objectives: {
       title: "Objectives",
@@ -71,7 +72,7 @@ const en = {
     },
     portfolioApi: {
       title: "Portfolio API Backend",
-      description: "Robust backend system for portfolio management with JWT authentication and MongoDB integration."
+      description: "Robust backend system for portfolio management with Java + Spring Boot, JWT authentication and MongoDB integration."
     }
   },
   contact: {
@@ -105,9 +106,10 @@ const pt = {
   about: {
     title: "Resumo (CV)",
     paragraphs: [
-      "Olá, sou João, tenho 19 anos, Graduando em Sistemas de Informação, afim de desenvolver mais experiências práticas na área de tecnologia da informação. Sou apaixonado por programação e inovação, e me dedico a criar soluções tecnológicas que tenham impacto real no dia a dia das pessoas e no desempenho das empresas.",
-      "Ao longo da minha jornada, desenvolvi um perfil proativo e criativo, com experiência em tecnologias modernas como JavaScript, TypeScript, Node.js, React, Next.js, Python, e integração de soluções IoT utilizando Arduino e ESP32. O que mais me motiva é a possibilidade de transformar ideias em soluções práticas que melhorem processos e simplifiquem a vida de quem as utiliza.",
-      "Tenho projetos realizados em diversas tecnologias, incluindo C#, JavaScript, HTML, CSS, React, Node.js, TypeScript e SQL, Arduino com ESP32.",
+      "João – Desenvolvedor | Sistemas de Informação",
+      "Graduando em Sistemas de Informação, apaixonado por programação e inovação. Busco criar soluções tecnológicas que otimizam processos e impactam positivamente empresas e pessoas.",
+      "Tenho experiência com JavaScript, TypeScript, Node.js, React, Next.js, Python e integração IoT com Arduino e ESP32. Desenvolvi projetos utilizando Java, HTML, CSS, MongoDB e SQL",
+      "Objetivos: Evoluir como desenvolvedor sênior e contribuir para projetos inovadores com impacto real.",
     ],
     objectives: {
       title: "Objetivos",
