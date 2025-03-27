@@ -3,25 +3,43 @@ import { NextResponse } from 'next/server';
 
 const SPRING_API_URL = 'https://backendportfolio-wwbi.onrender.com/api';
 
+// export async function GET() {
+//   try {
+//     const response = await fetch(`${SPRING_API_URL}/projects`, {
+//       cache: 'no-store' // Para evitar cache em desenvolvimento
+//     });
+
+//     if (!response.ok) {
+//       throw new Error(`Spring API error: ${response.statusText}`);
+//     }
+
+//     const projects = await response.json();
+//     console.log(projects)
+//     return NextResponse.json(projects);
+//   } catch (error) {
+//     console.error('Error fetching projects:', error);
+//     return NextResponse.json(
+//       { error: error instanceof Error ? error.message : 'Failed to fetch projects' },
+//       { status: 500 }
+//     );
+//   }
+// }
+
 export async function GET() {
   try {
     const response = await fetch(`${SPRING_API_URL}/projects`, {
-      cache: 'no-store' // Para evitar cache em desenvolvimento
+      next: { revalidate: 3600 } // ISR: Atualiza a cada 1 hora
     });
 
-    if (!response.ok) {
-      throw new Error(`Spring API error: ${response.statusText}`);
-    }
-
+    if (!response.ok) throw new Error(`Erro na API: ${response.statusText}`);
+    
     const projects = await response.json();
-    console.log(projects)
     return NextResponse.json(projects);
+    
   } catch (error) {
-    console.error('Error fetching projects:', error);
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Failed to fetch projects' },
-      { status: 500 }
-    );
+    // Fallback para dados estáticos locais se a API falhar
+    const staticFallback = require('@/data/projects-fallback.json');
+    return NextResponse.json(staticFallback);
   }
 }
 
