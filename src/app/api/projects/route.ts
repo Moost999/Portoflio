@@ -38,7 +38,7 @@ export async function GET() {
     
   } catch (error) {
     // Fallback para dados estáticos locais se a API falhar
-    const staticFallback = require('@/data/projects-fallback.json');
+    const staticFallback = require('public/data/projects-fallback.json');
     return NextResponse.json(staticFallback);
   }
 }
