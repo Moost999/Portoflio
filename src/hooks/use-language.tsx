@@ -108,7 +108,7 @@ const pt = {
     paragraphs: [
       "João – Desenvolvedor | Sistemas de Informação",
       "Graduando em Sistemas de Informação, apaixonado por programação e inovação. Busco criar soluções tecnológicas que otimizam processos e impactam positivamente empresas e pessoas.",
-      "Tenho experiência com JavaScript, TypeScript, Node.js, React, Next.js, Python e integração IoT com Arduino e ESP32. Desenvolvi projetos utilizando Java, HTML, CSS, MongoDB e SQL",
+      "Tenho experiência com JavaScript, TypeScript, Node.js, React, Next.js, Python e integração IoT com Arduino e ESP32, Também desenvolvi projetos utilizando Java, HTML, CSS, MongoDB e SQL",
       "Objetivos: Evoluir como desenvolvedor sênior e contribuir para projetos inovadores com impacto real.",
     ],
     objectives: {
