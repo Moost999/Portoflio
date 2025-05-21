@@ -44,21 +44,43 @@ export default function Page() {
   const contactRef = useRef<HTMLElement>(null)
 
   // Carrega projetos da API
-  const loadProjects = async () => {
-    try {
-      setLoading(true)
-      const response = await fetch('/api/projects')
-      if (!response.ok) {
+const loadProjects = async () => {
+  try {
+    setLoading(true)
+
+    // Promise que faz a requisição para a API
+    const fetchProjects = fetch('/api/projects').then(async (res) => {
+      if (!res.ok) {
         throw new Error('Failed to fetch projects')
       }
-      const data = await response.json()
-      setProjects(data)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load projects')
-    } finally {
-      setLoading(false)
+      return res.json()
+    })
+
+    // Timeout de 6 segundos
+    const timeout = new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error("Timeout after 6 seconds")), 6000)
+    )
+
+    // Tenta buscar da API em até 6s
+    const data = await Promise.race([fetchProjects, timeout])
+    setProjects(data)
+  } catch (err) {
+    console.warn("Usando fallback por falha ou timeout:", err)
+
+    try {
+      // Fallback para dados mockados
+      const fallback = await fetch('/data/projects-fallback.json')
+      const fallbackData = await fallback.json()
+      setProjects(fallbackData)
+    } catch (fallbackError) {
+      console.error("Erro ao carregar fallback:", fallbackError)
+      setError("Failed to load projects and fallback")
     }
+  } finally {
+    setLoading(false)
   }
+}
+
 
   // Cria um novo projeto
   const handleAddProject = async () => {
