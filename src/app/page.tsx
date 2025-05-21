@@ -69,7 +69,7 @@ const loadProjects = async () => {
 
     try {
       // Fallback para dados mockados
-      const fallback = await fetch('/data/projects-fallback.json')
+      const fallback = await fetch('/projects-fallback.json')
       const fallbackData = await fallback.json()
       setProjects(fallbackData)
     } catch (fallbackError) {
