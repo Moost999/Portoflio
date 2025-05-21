@@ -1,0 +1,158 @@
+[{
+  "_id": {
+    "$oid": "67e2d15d208920421e75c43e"
+  },
+  "title": "Metaverse UX Project",
+  "description": "Uma experiência imersiva de interface para o Metaverso desenvolvida com Next.js. Este projeto demonstra conceitos avançados de UI/UX com animações fluidas e design responsivo, criando uma experiência de usuário envolvente que simula a navegação em um ambiente de metaverso.",
+  "link": "https://metaverseuxproject.vercel.app/",
+  "github": "https://github.com/Moost999/metaverseuxproject",
+  "technologies": [
+    "Next.js",
+    "React",
+    "TailwindCSS",
+    "Framer Motion"
+  ],
+  "imagesUrl": [
+    "https://i.imgur.com/cNGm4pj.png"
+  ],
+  "videoUrl": "https://youtu.be/LcEeaBzIxqU",
+  "_class": "com.moostdev.portfolio.domain.Project"
+},
+{
+  "_id": {
+    "$oid": "67e2d238208920421e75c43f"
+  },
+  "title": "AxxusAI - Hub de I.A para o whatsapp",
+  "description": "Hub completo para criação e gerenciamento de agentes de Inteligência Artificial. Integra múltiplos modelos de IA (Gemini, LLama3, OpenAI) com uma interface unificada. Permite criar, personalizar e gerenciar assistentes virtuais para o whatsapp",
+  "link": "https://axxusai.vercel.app/",
+  "github": "https://github.com/Moost999/Axxus",
+  "technologies": [
+    "Next.js",
+    "React",
+    "TailwindCSS",
+    "Framer Motion",
+    "Node JS",
+    "MongoDB",
+    "Express",
+    "Prisma"
+  ],
+  "imagesUrl": [
+    "https://i.imgur.com/iwItJga.jpeg",
+    "https://i.imgur.com/wkTxGBe.png",
+    "https://i.imgur.com/aLGO8Wa.png",
+    "https://i.imgur.com/Y1MmyYY.png"
+  ],
+  "videoUrl": "https://youtu.be/WCka9Xz2glI",
+  "_class": "com.moostdev.portfolio.domain.Project"
+},
+{
+  "_id": {
+    "$oid": "67e2d387208920421e75c440"
+  },
+  "title": "Automação de Interfaces ERPt",
+  "description": "Solução de automação para processos repetitivos em sistemas ERP. Utilizando Python e PyAutoGUI, este projeto automatiza tarefas de cadastro e manipulação de dados em interfaces gráficas, reduzindo significativamente o tempo operacional e eliminando erros humanos. Inclui detecção inteligente de elementos na tela e tratamento de exceções para garantir robustez.",
+  "link": "https://axxusai.vercel.app/",
+  "github": "https://github.com/Moost999/Axxus",
+  "technologies": [
+    "Python",
+    "PyAutoGUI",
+    "Pandas"
+  ],
+  "imagesUrl": [
+    "https://i.imgur.com/h5bVmvC.png"
+  ],
+  "videoUrl": "https://youtu.be/Lz3GX3QTGmw",
+  "_class": "com.moostdev.portfolio.domain.Project"
+},
+{
+  "_id": {
+    "$oid": "67e2d5fb208920421e75c442"
+  },
+  "title": "Sistema De Brindes Corporativos",
+  "description": "Plataforma completa para gerenciamento e distribuição de ingressos e cortesias para eventos corporativos. Desenvolvido com Next.js e SQLite, o sistema permite o cadastro de eventos, controle de disponibilidade, sorteio automatizado e distribuição de ingressos. Inclui painel administrativo para gestão completa e interface intuitiva para usuários finais.",
+  "link": "https://axxusai.vercel.app/",
+  "github": "https://github.com/Moost999/",
+  "technologies": [
+    "NextJS",
+    "React",
+    "SQLite",
+    "Prisma",
+    "TailwindCSS",
+    "NodeJS"
+  ],
+  "imagesUrl": [
+    "https://i.imgur.com/3BVWLj0.png",
+    "https://i.imgur.com/W7nGD28.png"
+  ],
+  "videoUrl": "https://youtu.be/CQjMl-q-y8g",
+  "_class": "com.moostdev.portfolio.domain.Project"
+},
+{
+  "_id": {
+    "$oid": "67e2dafa208920421e75c443"
+  },
+  "title": "Sistema De Login Java & Angular 17",
+  "description": "Pagina de Login Simples para pratica e estudo, Back-End em Java e Spring com Spring Security e H2 com JPA para persistencia dos dados e Angular No FrontEnd",
+  "link": "https://axxusai.vercel.app/",
+  "github": "https://github.com/Moost999/",
+  "technologies": [
+    "Angular",
+    "Java",
+    "Spring",
+    "H2 Database",
+    "Spring Security"
+  ],
+  "imagesUrl": [
+    "https://i.imgur.com/oEx8bu7.png",
+    "https://i.imgur.com/6Bgm35P.png",
+    "https://i.imgur.com/uKvUcJH.png"
+  ],
+  "videoUrl": "",
+  "_class": "com.moostdev.portfolio.domain.Project"
+},
+{
+  "_id": {
+    "$oid": "67e2dcff208920421e75c444"
+  },
+  "title": "Chat Personalizado - Hello Kitty Chat",
+  "description": "Em uma tarde descontraída, surgiu o desafio de criar nosso próprio chat pessoal e divertido. Em apenas 15 horas de desenvolvimento intenso, nasceu o Hello Kitty Chat, um projeto full-stack construído com Next.js que demonstra como paixão e dedicação podem transformar ideias em realidade rapidamente.\n\nDestaques:\n- SSE (Server-Sent Events) para atualizações em tempo real\n- Prisma ORM + MongoDB para armazenamento eficiente\n- Tema personalizável Hello Kitty com código flexível\n- Arquitetura full-stack integrada (front-end, back-end e banco de dados)\n",
+  "link": "https://hello-kitty-chat.vercel.app/",
+  "github": "https://github.com/Moost999/HelloKittyChat",
+  "technologies": [
+    "NextJS",
+    "React",
+    "TypeScript",
+    "MongoDB",
+    "SSE - Server Side Events",
+    "TailwindCSS"
+  ],
+  "imagesUrl": [
+    "https://i.imgur.com/lnteocB.png",
+    "https://i.imgur.com/IGm0zJh.png"
+  ],
+  "videoUrl": "https://youtu.be/0FlBLHkI46Y",
+  "_class": "com.moostdev.portfolio.domain.Project"
+},
+{
+  "_id": {
+    "$oid": "67e2de90208920421e75c445"
+  },
+  "title": "Portfolio API - Backend",
+  "description": "API desenvolvida em Java/Spring Boot para gerenciamento de projetos de portfólio, com autenticação JWT e integração com MongoDB. Principais funcionalidades:\n\n- CRUD completo de projetos\n- Upload e gestão de imagens/vídeos\n- Autenticação segura com Spring Security\n- Integração com frontend Next.js",
+  "link": "",
+  "github": "https://github.com/Moost999/portfolio-backend",
+  "technologies": [
+    "Java",
+    "Spring Boot",
+    "Spring Security",
+    "JWT",
+    "MongoDB",
+    "Spring Data MongoDB"
+  ],
+  "imagesUrl": [
+    "",
+    ""
+  ],
+  "videoUrl": "",
+  "_class": "com.moostdev.portfolio.domain.Project"
+}]
